@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv=X-UA-Compatible content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<script src="/lib.js"></script>
+	<script src="/script.js"></script>
+	<link rel="stylesheet" href="/style.css">
+	<meta name=mobile-web-app-capable content=yes>
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=application-name content="Calc">
+	<meta name=apple-mobile-web-app-status-bar-style content=#0F0848>
+	<meta name=apple-mobile-web-app-title content="Calc">
+	<meta name=theme-color content=#0F0848>
+
+	<link rel=manifest href="/manifest.json">
+	<link rel=icon sizes=152x152 href="/imgs/calculator-icon-152-192401.png">
+	<link rel=apple-touch-icon href="/imgs/calculator-icon-152-192401.png">
+	<style>
+		#loader {
+			height: 100%;
+		}
+
+		.container {
+			padding: 60px;
+			padding-top: 10vh;
+			padding-bottom: 0;
+		}
+
+		div.input {
+			margin-bottom: 15px;
+		}
+
+		.buttons {
+			width: 179px;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+	</style>
+	<title>Calc</title>
+</head>
+<body>
+
+<div class="ui" id="loader">
+	<div class="ui active inverted dimmer">
+		<div class="ui massive text loader">Loading</div>
+	</div>
+</div>
+
+<div class="ui container" id="app" style="display: none;">
+	<div>
+		<div class="ui fluid icon large input">
+			<input type="text" placeholder="" id="num1">
+		</div>
+		<div class="ui fluid icon large input">
+			<input type="text" placeholder="" id="num2">
+		</div>
+		<div class="ui selection large dropdown">
+			<input type="hidden" name="op" id="op">
+			<i class="dropdown icon"></i>
+			<div class="default text">Выберите операцию</div>
+			<div class="menu">
+				<div class="item" data-value="sum">Сложение</div>
+				<div class="item" data-value="sub">Вычитание</div>
+				<div class="item" data-value="mul">Умножение</div>
+				<div class="item" data-value="div">Деление</div>
+			</div>
+		</div>
+	</div>
+	<div class="buttons">
+		<button class="ui primary large button" id="calcb">
+			Calc
+		</button>
+		<button class="ui large button" id="resetb">
+			Reset
+		</button>
+	</div>
+</div>
+
+<div class="ui small modal">
+	<div class="header">Поздравляю!</div>
+	<div class="content" id="res">
+		Ответ равен 56
+	</div>
+</div>
+
+<script>
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker
+				.register('sw.js')
+				.then(function (registration) {
+					console.info('ServiceWorker registration', registration);
+				})
+				.catch(function (err) {
+					throw new Error('ServiceWorker error: ' + err);
+				});
+	}
+
+	setTimeout(function () {
+		window.loader.hidden = true;
+		window.app.style = '';
+		$('.ui.dropdown')
+				.dropdown()
+		;
+
+		window.resetb.onclick = function () {
+			window.num1.value = '';
+			window.num2.value = '';
+			window.op.value = '';
+		};
+		window.calcb.onclick = function () {
+			window.res.innerText = '';
+			const a = (+window.num1.value) | 0;
+			const b = (+window.num2.value) | 0;
+			console.log({a, b, v: window.op.value});
+			switch (window.op.value) {
+				case 'sum':
+					window.res.innerText = `Результат операции: ${a + b}`;
+					break;
+				case 'sub':
+					window.res.innerText = `Результат операции: ${a - b}`;
+					break;
+				case 'mul':
+					window.res.innerText = `Результат операции: ${a * b}`;
+					break;
+				case 'div':
+					window.res.innerText = `Результат операции: ${a / b}`;
+					break;
+				default:
+					return;
+			}
+			$('.small.modal')
+					.modal('show')
+			;
+			window.resetb.click();
+		}
+
+	}, 1000);
+</script>
+
+</body>
+</html>

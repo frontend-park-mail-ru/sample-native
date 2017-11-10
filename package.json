@@ -1,0 +1,20 @@
+{
+  "name": "sample-native",
+  "version": "0.0.1",
+  "description": "Sample PWA: native mobile web-application",
+  "main": "index.js",
+  "scripts": {
+    "start": "reload --dir public -bp 8095"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontend-park-mail-ru/sample-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frontend-park-mail-ru/sample-native/issues"
+  },
+  "homepage": "https://github.com/frontend-park-mail-ru/sample-native#readme",
+  "devDependencies": {
+    "reload": "^2.2.2"
+  }
+}

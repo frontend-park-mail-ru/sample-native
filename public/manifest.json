@@ -1,0 +1,66 @@
+{
+	"name": "Calc",
+	"short_name": "Calc",
+	"icons": [
+		{
+			"src": "/imgs/calculator-icon-16-192401.png",
+			"type": "image/png",
+			"sizes": "16x16"
+		},
+		{
+			"src": "/imgs/calculator-icon-24-192401.png",
+			"type": "image/png",
+			"sizes": "24x24"
+		},
+		{
+			"src": "/imgs/calculator-icon-32-192401.png",
+			"type": "image/png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "/imgs/calculator-icon-48-192401.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "/imgs/calculator-icon-57-192401.png",
+			"type": "image/png",
+			"sizes": "57x57"
+		},
+		{
+			"src": "/imgs/calculator-icon-64-192401.png",
+			"type": "image/png",
+			"sizes": "64x64"
+		},
+		{
+			"src": "/imgs/calculator-icon-72-192401.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "/imgs/calculator-icon-114-192401.png",
+			"type": "image/png",
+			"sizes": "114x114"
+		},
+		{
+			"src": "/imgs/calculator-icon-120-192401.png",
+			"type": "image/png",
+			"sizes": "120x120"
+		},
+		{
+			"src": "/imgs/calculator-icon-144-192401.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "/imgs/calculator-icon-152-192401.png",
+			"type": "image/png",
+			"sizes": "152x152"
+		}
+	],
+	"start_url": "/index.html",
+	"display": "fullscreen",
+	"orientation": "landscape",
+	"background_color": "#0F0848",
+	"theme_color": "#0F0848"
+}
